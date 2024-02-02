@@ -1,15 +1,14 @@
 package splytapp.splytapp;
 
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Scanner;
+import javafx.fxml.FXML;
 
 public class JsonController {
 
