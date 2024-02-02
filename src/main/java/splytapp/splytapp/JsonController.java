@@ -11,9 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-public class JsonController extends Application {
+public class JsonController {
 
-    @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Redirect System.out");
 

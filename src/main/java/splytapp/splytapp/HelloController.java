@@ -1,26 +1,47 @@
 package splytapp.splytapp;
 
+import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
-public class HelloController {
-    @FXML
-    private Label welcomeText;
-    @FXML
-    private Label welcomeText2;
-
-    @FXML
-    private Label JSONfile;
-
-    @FXML
-    private Label YAMLfile;
+import java.io.File;
+import java.io.IOException;
 
 
-//    @FXML
-//    JSONfile.setText("JSON file");
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-        welcomeText2.setText("This is a new app");
+public class HelloController extends Application {
+
+    boolean useYamlController = shouldUseYamlController();
+
+    String fxmlFile = useYamlController ? "yaml-view.fxml" : "hello-view.fxml";
+    FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+    Parent root = loader.load();
+
+    if (useYamlController) {
+        YamlController yamlController = loader.getController();
+
+    } else {
+        JsonController jsonController = loader.getController();
+
+    }
+
+    Scene scene = new Scene(root);
+    primaryStage.setScene(scene);
+    primaryStage.setTitle("Main Controller Example");
+    primaryStage.show();
+    public HelloController() throws IOException, Exception {
+    }
+    private boolean shouldUseYamlController() {
+        // Add your condition here to determine whether to use YamlController or JsonController
+        File yamlFile = new File("/Users/adrianacosta/Desktop/yamlFileTest.yml");
+        return yamlFile.exists();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
     }
 }
