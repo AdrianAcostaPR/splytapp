@@ -5,18 +5,21 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="splytapp.splytapp.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
+    <Label text="Welcome to Splyt" fx:id="welcomeText"/>
 
     <Label text="Choose your file" fx:id="titleText"/>
-    <Label text="JSON File" fx:id="jsonFileTitle"/>
 
-    <Label text="YAML File" fx:id="yamlFileTitle"/>
+    <RadioButton text="JSON File" fx:id="jsonRadioBtn"/>
+    <RadioButton text="YAML File" fx:id="yamlRadioBtn"/>
+
 
     <Button text="Hello!" onAction="#onHelloButtonClick"/>
 
