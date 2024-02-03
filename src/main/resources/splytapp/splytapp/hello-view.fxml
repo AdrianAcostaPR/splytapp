@@ -12,7 +12,12 @@
     </padding>
 
     <Label fx:id="welcomeText"/>
-    <Label fx:id="apptitle"/>
-    <Label fx:id="welcomeText2"/>
+
+    <Label text="Choose your file" fx:id="titleText"/>
+    <Label text="JSON File" fx:id="jsonFileTitle"/>
+
+    <Label text="YAML File" fx:id="yamlFileTitle"/>
+
+    <Button text="Hello!" onAction="#onHelloButtonClick"/>
 
 </VBox>
