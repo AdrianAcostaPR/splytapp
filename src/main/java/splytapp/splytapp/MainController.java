@@ -22,15 +22,23 @@ public class MainController extends Application {
     @FXML
     private Label welcomeText;
 
-    Label appTile = new Label("Welcome to Splyt!");
-    TilePane tilePane = new TilePane();
+    //Label appTile = new Label("Welcome to Splyt!");
+    //TilePane tilePane = new TilePane();
 
-    @FXML
+    @FXML //These RadioButtons are being redirected to the hello-vew.fxlm
     private RadioButton yamlRadioBtn;
     @FXML
     private RadioButton jsonRadioBtn;
+
     @FXML
-    private ToggleGroup toggleGroup;
+    private void initialize() {
+        ToggleGroup toggleGroup = new ToggleGroup();
+
+        yamlRadioBtn.setToggleGroup(toggleGroup);
+        jsonRadioBtn.setToggleGroup(toggleGroup);
+        System.out.println("Inside the radioButtons");
+
+    }
 
     @FXML
     protected void onHelloButtonClick() {
