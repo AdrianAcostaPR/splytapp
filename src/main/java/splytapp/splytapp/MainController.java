@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
@@ -23,13 +24,13 @@ public class MainController extends Application {
 
     Label appTile = new Label("Welcome to Splyt!");
     TilePane tilePane = new TilePane();
-    RadioButton yamlRadioBtn = new RadioButton("YAML");
-    RadioButton jsonRadioBtn = new RadioButton("JSON");
 
-    //appTile.getChildren().add(1);
-
-
-
+    @FXML
+    private RadioButton yamlRadioBtn;
+    @FXML
+    private RadioButton jsonRadioBtn;
+    @FXML
+    private ToggleGroup toggleGroup;
 
     @FXML
     protected void onHelloButtonClick() {
