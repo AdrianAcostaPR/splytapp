@@ -38,8 +38,17 @@ public class MainController {
     }
 
     @FXML
+    private Label onClickText;
+    @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        if(!yamlRadioBtn.isSelected() && !jsonRadioBtn.isSelected()) {
+            onClickText.setText("Please choose an option before proceeding!");
+        } else if (yamlRadioBtn.isSelected()) {
+            onClickText.setText("You chose YAML!");
+        } else {
+            onClickText.setText("You chose JSON!");
+        }
+
     }
 
 //    if (useYamlController) {
