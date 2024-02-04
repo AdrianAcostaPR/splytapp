@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.File;
 
 
-public class MainController extends Application {
+public class MainController {
 
     final String ENTER = "\n\r";
     final String TAB = "\t";
@@ -33,11 +33,8 @@ public class MainController extends Application {
     @FXML
     private void initialize() {
         ToggleGroup toggleGroup = new ToggleGroup();
-
         yamlRadioBtn.setToggleGroup(toggleGroup);
         jsonRadioBtn.setToggleGroup(toggleGroup);
-        System.out.println("Inside the radioButtons");
-
     }
 
     @FXML
@@ -56,11 +53,5 @@ public class MainController extends Application {
         // Add your condition here to determine whether to use YamlController or JsonController
         File yamlFile = new File("/Users/adrianacosta/Desktop/yamlFileTest.yml");
         return yamlFile.exists();
-    }
-
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-
     }
 }
