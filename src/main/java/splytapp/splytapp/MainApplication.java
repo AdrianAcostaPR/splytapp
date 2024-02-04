@@ -1,5 +1,6 @@
 package splytapp.splytapp;
 
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -8,7 +9,7 @@ import java.io.IOException;
 
 import static javafx.application.Application.launch;
 
-public class MainApplication extends MainController {
+public class MainApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
