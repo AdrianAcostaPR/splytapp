@@ -41,11 +41,12 @@ public class MainController {
     private Label onClickText;
     @FXML
     protected void onHelloButtonClick() {
+        //Validates which option is chosen by the user.
         if(!yamlRadioBtn.isSelected() && !jsonRadioBtn.isSelected()) {
             onClickText.setText("Please choose an option before proceeding!");
         } else if (yamlRadioBtn.isSelected()) {
             onClickText.setText("You chose YAML!");
-        } else {
+        } else { //Otherwise, the other button available is the JSON button.
             onClickText.setText("You chose JSON!");
         }
 

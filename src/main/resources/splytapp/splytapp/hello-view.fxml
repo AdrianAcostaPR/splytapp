@@ -21,7 +21,7 @@
     <RadioButton text="JSON File" fx:id="jsonRadioBtn"/>
     <RadioButton text="YAML File" fx:id="yamlRadioBtn"/>
 
-    <Label text="" fx:id="onClickText"/>
+    <Label fx:id="onClickText"/>
 
     <Button text="Hello!" onAction="#onHelloButtonClick"/>
 
