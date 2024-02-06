@@ -11,22 +11,6 @@ import java.util.Scanner;
 import javafx.fxml.FXML;
 
 public class JsonController {
-
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Redirect System.out");
-
-        TextArea textArea = new TextArea();
-
-        System.setOut(new PrintStream(new CustomOutputStream(textArea)));
-
-        StackPane root = new StackPane();
-        root.getChildren().add(textArea);
-        primaryStage.setScene(new Scene(root, 600, 400));
-        primaryStage.show();
-
-        jsonGeneratorMethod("ENTER", "TAB", "SPACE");
-    }
-
     public static void jsonGeneratorMethod(String ENTER, String TAB, String SPACE) {
         File readFile = new File("/Users/adrianacosta/Desktop/yamlFileTest.yml");
         System.out.println(" ");
