@@ -16,14 +16,17 @@ public class MainController {
     final String ENTER = "\n\r";
     final String TAB = "\t";
     final String SPACE = " ";
+
+
+
+    @FXML
+    private Label chooseFileText; //To resolve alert on hello-view.fxml.
+
     //JsonController.jsonGeneratorMethod(ENTER, TAB, SPACE);
     //Needs to be created / copied from old project
     //YamlController.yamlGeneratorMethod(ENTER, TAB, SPACE);
     @FXML
     private Label welcomeText;
-
-    //Label appTile = new Label("Welcome to Splyt!");
-    //TilePane tilePane = new TilePane();
 
     @FXML //These RadioButtons are being redirected to the hello-vew.fxlm
     private RadioButton yamlRadioBtn;
@@ -47,9 +50,9 @@ public class MainController {
         } else if (yamlRadioBtn.isSelected()) {
             onClickText.setText("You chose YAML!");
         } else { //Otherwise, the other button available is the JSON button.
+            JsonController.jsonGeneratorMethod("ENTER", "TAB", "SPACE");
             onClickText.setText("You chose JSON!");
         }
-
     }
 
 //    if (useYamlController) {
