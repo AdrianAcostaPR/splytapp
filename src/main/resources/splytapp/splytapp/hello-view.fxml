@@ -16,7 +16,7 @@
 
     <Label text="Welcome to Splyt!" fx:id="welcomeText"/>
 
-    <Label text="Choose your file" fx:id="titleText"/>
+    <Label text="Choose your file" fx:id="chooseFileText"/>
 
     <RadioButton text="JSON File" fx:id="jsonRadioBtn"/>
     <RadioButton text="YAML File" fx:id="yamlRadioBtn"/>
