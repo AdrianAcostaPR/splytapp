@@ -17,7 +17,7 @@ public class MainController {
     final String TAB = "\t";
     final String SPACE = " ";
 
-
+    Stage stage = new Stage();
 
     @FXML
     private Label chooseFileText; //To resolve alert on hello-view.fxml.
@@ -32,6 +32,7 @@ public class MainController {
     private RadioButton yamlRadioBtn;
     @FXML
     private RadioButton jsonRadioBtn;
+
 
     @FXML
     private void initialize() {
@@ -50,7 +51,8 @@ public class MainController {
         } else if (yamlRadioBtn.isSelected()) {
             onClickText.setText("You chose YAML!");
         } else { //Otherwise, the other button available is the JSON button.
-            JsonController.jsonGeneratorMethod("ENTER", "TAB", "SPACE");
+
+            JsonController.jsonGeneratorMethod("ENTER", "TAB", "SPACE", stage);
             onClickText.setText("You chose JSON!");
         }
     }
