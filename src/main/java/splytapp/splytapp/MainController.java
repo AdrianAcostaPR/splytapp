@@ -49,6 +49,7 @@ public class MainController {
         if(!yamlRadioBtn.isSelected() && !jsonRadioBtn.isSelected()) {
             onClickText.setText("Please choose an option before proceeding!");
         } else if (yamlRadioBtn.isSelected()) {
+            YamlController.yamlGeneratorMethod("ENTER", "TAB", "SPACE", stage);
             onClickText.setText("You chose YAML!");
         } else { //Otherwise, the other button available is the JSON button.
 
