@@ -3,7 +3,9 @@ package splytapp.splytapp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -16,7 +18,7 @@ public class MainController {
     Stage stage = new Stage();
 
     @FXML
-    private Label chooseFileText; //To resolve alert on hello-view.fxml.
+    private Label chooseFileText; //To resolve alert on main-view.fxml.
 
     @FXML
     private Label welcomeText;
@@ -25,12 +27,16 @@ public class MainController {
     private RadioButton yamlRadioBtn;
     @FXML
     private RadioButton jsonRadioBtn;
+    @FXML
+    private TextArea outputText;
 
     @FXML
     private void initialize() {
         ToggleGroup toggleGroup = new ToggleGroup();
         yamlRadioBtn.setToggleGroup(toggleGroup);
         jsonRadioBtn.setToggleGroup(toggleGroup);
+
+
     }
 
     @FXML
@@ -41,7 +47,9 @@ public class MainController {
         if(!yamlRadioBtn.isSelected() && !jsonRadioBtn.isSelected()) {
             onClickText.setText("Please choose an option before proceeding!");
         } else if (yamlRadioBtn.isSelected()) {
-            YamlController.yamlGeneratorMethod(ENTER, TAB, SPACE, stage);
+            //YamlController yamlController = new YamlController();
+            String yamlOutput = YamlController.yamlGeneratorMethod(ENTER, TAB, SPACE, stage);
+            outputText.setText(yamlOutput);
             onClickText.setText("You chose YAML!");
         } else { //Otherwise, the other button available is the JSON button.
             JsonController.jsonGeneratorMethod(ENTER, TAB, SPACE, stage);
