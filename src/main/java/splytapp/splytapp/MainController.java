@@ -35,8 +35,6 @@ public class MainController {
         ToggleGroup toggleGroup = new ToggleGroup();
         yamlRadioBtn.setToggleGroup(toggleGroup);
         jsonRadioBtn.setToggleGroup(toggleGroup);
-
-
     }
 
     @FXML
@@ -47,12 +45,14 @@ public class MainController {
         if(!yamlRadioBtn.isSelected() && !jsonRadioBtn.isSelected()) {
             onClickText.setText("Please choose an option before proceeding!");
         } else if (yamlRadioBtn.isSelected()) {
-            //YamlController yamlController = new YamlController();
-            String yamlOutput = YamlController.yamlGeneratorMethod(ENTER, TAB, SPACE, stage);
-            outputText.setText(yamlOutput);
+            //The JsonController is executed because we need to turn it into a json file.
+            String jsonOutput = JsonController.jsonGeneratorMethod(ENTER, TAB, SPACE, stage);
+            outputText.setText(jsonOutput);
             onClickText.setText("You chose YAML!");
         } else { //Otherwise, the other button available is the JSON button.
-            JsonController.jsonGeneratorMethod(ENTER, TAB, SPACE, stage);
+            //The YamlController is executed because we need to turn it into a yaml file.
+            String yamlOutput = YamlController.yamlGeneratorMethod(ENTER, TAB, SPACE, stage);
+            outputText.setText(yamlOutput);
             onClickText.setText("You chose JSON!");
         }
     }

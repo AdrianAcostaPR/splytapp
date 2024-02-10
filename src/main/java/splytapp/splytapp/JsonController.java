@@ -6,14 +6,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class JsonController {
-
-    public static void jsonGeneratorMethod(String ENTER, String TAB, String SPACE, Stage stage) {
+    public static String jsonGeneratorMethod(String ENTER, String TAB, String SPACE, Stage stage) {
         File selectedFile = FileHandler.readUploadFile(stage);
+        String jsonOutput = null;
 
         if (selectedFile != null) {
             System.out.println(" ");
             try {
-
                 Scanner fileReader = new Scanner(selectedFile);
                 StringBuilder jsonStringBuilder = new StringBuilder();
 
@@ -25,8 +24,6 @@ public class JsonController {
                     if (stringRow.equals("---")) {
                         jsonStringBuilder.append("{");
 
-                        System.out.println("{");
-
                     } else if (stringRow.startsWith(TAB)) {
                         // If true, then this is a first CHILD of YAML
                         String[] fatherAndSonArray = stringRow.split(":");
@@ -36,7 +33,6 @@ public class JsonController {
                                 String fatherName = fatherAndSonArray[0];
                                 jsonStringBuilder.append(TAB).append("\"").append(fatherName).append("\":");
 
-                                System.out.println(TAB + "\"" + fatherName + "\":");
                             }
 
                     } else if (stringRow.contains(":")){ // this is the parent of YAML
@@ -55,10 +51,6 @@ public class JsonController {
                                 jsonStringBuilder.append("\"").append(fatherValue).append("\",");
                                 jsonStringBuilder.append(ENTER);
 
-                                System.out.println(TAB + TAB + "[");
-                                System.out.print(TAB + "\"" + fatherName + "\":");
-                                System.out.print("\"" + fatherValue + "\",");
-                                System.out.print(ENTER);
 
                             } else if (fatherAndSonArray[1] != null) {
                                 String fatherName = fatherAndSonArray[0];
@@ -71,19 +63,12 @@ public class JsonController {
                                     jsonStringBuilder.append(TAB).append("[");
                                     jsonStringBuilder.append(ENTER);
 
-                                    System.out.println();
-                                    System.out.print(TAB + "\"" + fatherName + "\":");
-                                    System.out.print(TAB + "[");
-                                    System.out.print(ENTER);
 
                                 } else {
                                     jsonStringBuilder.append(TAB).append("\"").append(fatherName).append("\":");
                                     jsonStringBuilder.append("\"").append(fatherValue).append("\",");
                                     jsonStringBuilder.append(ENTER);
 
-                                    System.out.print(TAB + "\"" + fatherName + "\":");
-                                    System.out.print("\"" + fatherValue + "\",");
-                                    System.out.print(ENTER);
                                 }
 
                             } else {
@@ -91,9 +76,6 @@ public class JsonController {
 
                                 jsonStringBuilder.append(TAB).append("\"").append(fatherName).append("\":");
                                 jsonStringBuilder.append(ENTER);
-
-                                System.out.print(TAB + "\"" + fatherName + "\":");
-                                System.out.print(ENTER);
 
                             }
 
@@ -103,16 +85,11 @@ public class JsonController {
                             jsonStringBuilder.append(TAB).append("}");
                             jsonStringBuilder.append(ENTER);
 
-                            System.out.println(TAB + TAB + "]" + ",");
-                            System.out.println(TAB + "}" + ",");
-                            System.out.println(ENTER);
-
                         } else {
                             String fatherName = fatherAndSonArray[0];
                             //This will create the Father
                             jsonStringBuilder.append(TAB).append("\"").append(fatherName).append("\": {");
 
-                            System.out.println(TAB + "\"" + fatherName + "\": {");
                         }
                     } else {
                         /*
@@ -123,15 +100,14 @@ public class JsonController {
                         String fatherName = fatherAndSonArray[0];
 
                         jsonStringBuilder.append(TAB).append(TAB).append("\"").append(fatherName).append("\"");
-
-                        System.out.println(TAB + TAB + "\"" + fatherName + "\"");
                     }
                 }
-                //String jsonOutput = jsonStringBuilder.toString();
+                jsonOutput = jsonStringBuilder.toString();
                 fileReader.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         }
+        return jsonOutput;
     }
 }
