@@ -36,7 +36,7 @@ public class YamlController {
                             if(fatherAndSonArray[1] == null) {
 
                                 String fatherName = fatherAndSonArray[0];
-                                yamlStringBuilder.append(TAB + fatherName + ":");
+                                yamlStringBuilder.append(TAB).append(fatherName).append(":");
 
                                 System.out.println(TAB + fatherName + ":");
                             }
@@ -49,8 +49,8 @@ public class YamlController {
                                 String fatherName = fatherAndSonArray[0];
                                 String fatherValue = fatherAndSonArray[1];
 
-                                yamlStringBuilder.append(TAB + TAB + "Testing");
-                                yamlStringBuilder.append(TAB + fatherName + ":");
+                                yamlStringBuilder.append(TAB).append(TAB).append("Testing");
+                                yamlStringBuilder.append(TAB).append(fatherName).append(":");
                                 yamlStringBuilder.append(fatherValue);
                                 yamlStringBuilder.append(ENTER);
 
@@ -65,8 +65,8 @@ public class YamlController {
 
                                 //This if checks for | and places the "Elements" in a list. Might not be needed
                                 if (fatherValue.contains("|")) {
-                                    yamlStringBuilder.append(TAB + fatherName + ":");
-                                    yamlStringBuilder.append(TAB + "[");
+                                    yamlStringBuilder.append(TAB).append(fatherName).append(":");
+                                    yamlStringBuilder.append(TAB).append("[");
                                     yamlStringBuilder.append(ENTER);
 
                                     System.out.println();
@@ -75,7 +75,7 @@ public class YamlController {
                                     System.out.print(ENTER);
 
                                 } else if (fatherValue.equals(" {")){
-                                    yamlStringBuilder.append(TAB + fatherName + ":");
+                                    yamlStringBuilder.append(TAB).append(fatherName).append(":");
                                     yamlStringBuilder.append("");
                                     yamlStringBuilder.append(ENTER);
 
@@ -86,7 +86,7 @@ public class YamlController {
 
                                     String removeFatherValueComma = fatherValue.replace(",", "");
 
-                                    yamlStringBuilder.append(TAB + fatherName + ":");
+                                    yamlStringBuilder.append(TAB).append(fatherName).append(":");
                                     yamlStringBuilder.append(removeFatherValueComma);
                                     yamlStringBuilder.append(ENTER);
 
@@ -98,7 +98,7 @@ public class YamlController {
                             } else {
                                 String fatherName = fatherAndSonArray[0];
 
-                                yamlStringBuilder.append(TAB + fatherName + ":");
+                                yamlStringBuilder.append(TAB).append(fatherName).append(":");
                                 yamlStringBuilder.append(ENTER);
 
                                 System.out.print(TAB + fatherName + ":");
@@ -106,9 +106,9 @@ public class YamlController {
                             }
 
                             //Checks if there is an empty string or space on the JSON File
-                        } else if (fatherAndSonArray[0].equals("")) {
+                        } else if (fatherAndSonArray[0].isEmpty()) {
                             yamlStringBuilder.append(TAB).append(TAB).append("]");
-                            yamlStringBuilder.append(TAB + "}");
+                            yamlStringBuilder.append(TAB).append("}");
                             yamlStringBuilder.append(ENTER);
 
                             System.out.println(TAB + TAB + "]");
@@ -117,7 +117,7 @@ public class YamlController {
                         } else {
                             String fatherName = fatherAndSonArray[0];
                             //This will create the Father
-                            yamlStringBuilder.append(TAB + fatherName + ": {");
+                            yamlStringBuilder.append(TAB).append(fatherName).append(": {");
 
                             System.out.println(TAB + fatherName + ": {");
                         }
@@ -147,10 +147,10 @@ public class YamlController {
 
                             System.out.println(TAB + TAB + fatherName);
                         }
-//                    yamlStringBuffer.append(TAB + TAB + fatherName);
-//                    System.out.println(TAB + TAB + fatherName);
                     }
                 }
+                //String yamlOutput = yamlStringBuilder.toString();
+                fileReader.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

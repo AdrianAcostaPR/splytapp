@@ -127,6 +127,7 @@ public class JsonController {
                         System.out.println(TAB + TAB + "\"" + fatherName + "\"");
                     }
                 }
+                //String jsonOutput = jsonStringBuilder.toString();
                 fileReader.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
