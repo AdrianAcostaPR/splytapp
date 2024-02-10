@@ -8,6 +8,7 @@
 <?import javafx.scene.control.RadioButton?>
 
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.TextArea?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="splytapp.splytapp.MainController">
     <padding>
@@ -24,5 +25,7 @@
     <Label fx:id="onClickText"/>
 
     <Button text="Hello!" onAction="#onHelloButtonClick"/>
+
+    <TextArea fx:id="outputText"/>
 
 </VBox>
