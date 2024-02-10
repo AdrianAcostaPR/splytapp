@@ -9,9 +9,6 @@ public class FileHandler {
     public static File readUploadFile(Stage stage) {
         //Open Dialog
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choose your File!");
-        File selectedFile = fileChooser.showOpenDialog(stage);
-
-        return selectedFile;
+        return fileChooser.showOpenDialog(stage);
     }
 }
