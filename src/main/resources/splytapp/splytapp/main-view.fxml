@@ -24,7 +24,7 @@
 
     <Label fx:id="onClickText"/>
 
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <Button text="Upload" onAction="#onUploadButtonClick"/>
 
     <TextArea fx:id="outputText"/>
 
