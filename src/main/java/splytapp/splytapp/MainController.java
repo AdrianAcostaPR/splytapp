@@ -40,7 +40,7 @@ public class MainController {
     @FXML
     private Label onClickText;
     @FXML
-    protected void onHelloButtonClick() {
+    protected void onUploadButtonClick() {
         //Validates which option is chosen by the user.
         if(!yamlRadioBtn.isSelected() && !jsonRadioBtn.isSelected()) {
             onClickText.setText("Please choose an option before proceeding!");
