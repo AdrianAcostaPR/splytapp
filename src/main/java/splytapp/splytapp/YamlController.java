@@ -23,7 +23,8 @@ public class YamlController {
                     //Beginning file reader
                     if (stringRow.equals("{")) {
 
-                        yamlStringBuilder.append("---");
+                        yamlStringBuilder.append("---" + ENTER);
+                        System.out.print("---" + ENTER);
 
                     } else if (stringRow.startsWith(TAB)) {
                         //If true, then this is a first child or JSON
@@ -32,7 +33,8 @@ public class YamlController {
                             if (fatherAndSonArray[1] == null) {
 
                                 String fatherName = fatherAndSonArray[0];
-                                yamlStringBuilder.append(TAB).append(fatherName).append(":");
+                                yamlStringBuilder.append(TAB + fatherName + ":");
+                                System.out.print(TAB + fatherName + ":");
 
                             }
                     } else if (stringRow.contains(":")) { //This is the parent of JSON
@@ -44,10 +46,14 @@ public class YamlController {
                                 String fatherName = fatherAndSonArray[0];
                                 String fatherValue = fatherAndSonArray[1];
 
-                                yamlStringBuilder.append(TAB).append(TAB).append("Testing");
-                                yamlStringBuilder.append(TAB).append(fatherName).append(":");
+                                yamlStringBuilder.append(TAB + TAB + "Testing");
+                                yamlStringBuilder.append(TAB + fatherName + ":");
                                 yamlStringBuilder.append(fatherValue);
                                 yamlStringBuilder.append(ENTER);
+
+                                System.out.print(TAB + TAB + "Testing");
+                                System.out.print(TAB + fatherName + ":");
+                                System.out.print(fatherValue);
 
                             } else if (fatherAndSonArray[1] != null) {
                                 String fatherName = fatherAndSonArray[0];
@@ -55,36 +61,56 @@ public class YamlController {
 
                                 //This if checks for | and places the "Elements" in a list. Might not be needed
                                 if (fatherValue.contains("|")) {
-                                    yamlStringBuilder.append(TAB).append(fatherName).append(":");
-                                    yamlStringBuilder.append(TAB).append("[");
+                                    yamlStringBuilder.append(TAB + fatherName + ":");
+                                    yamlStringBuilder.append(TAB + "[");
                                     yamlStringBuilder.append(ENTER);
 
+                                    System.out.print(TAB + fatherName + ":");
+                                    System.out.print(TAB + "[");
+                                    System.out.print(ENTER);
+
                                 } else if (fatherValue.equals(" {")) {
-                                    yamlStringBuilder.append(TAB).append(fatherName).append(":");
+                                    yamlStringBuilder.append(TAB + fatherName + ":");
                                     yamlStringBuilder.append("");
                                     yamlStringBuilder.append(ENTER);
+
+                                    System.out.print(TAB + fatherName + ":");
+                                    System.out.print("");
+                                    System.out.print(ENTER);
                                 } else {
                                     String removeFatherValueComma = fatherValue.replace(",", "");
-                                    yamlStringBuilder.append(TAB).append(fatherName).append(":");
+                                    yamlStringBuilder.append(TAB + fatherName + ":");
                                     yamlStringBuilder.append(removeFatherValueComma);
                                     yamlStringBuilder.append(ENTER);
+
+                                    System.out.print(TAB + fatherName + ":");
+                                    System.out.print(removeFatherValueComma);
+                                    System.out.print(ENTER);
                                 }
                             } else {
                                 String fatherName = fatherAndSonArray[0];
-                                yamlStringBuilder.append(TAB).append(fatherName).append(":");
+                                yamlStringBuilder.append(TAB + fatherName + ":");
                                 yamlStringBuilder.append(ENTER);
+
+                                System.out.print(TAB + fatherName + ":");
+                                System.out.print(ENTER);
                             }
 
                             //Checks if there is an empty string or space on the JSON File
                         } else if (fatherAndSonArray[0].isEmpty()) {
-                            yamlStringBuilder.append(TAB).append(TAB).append("]");
-                            yamlStringBuilder.append(TAB).append("}");
+                            yamlStringBuilder.append(TAB + TAB + "]");
+                            yamlStringBuilder.append(TAB + "}");
                             yamlStringBuilder.append(ENTER);
+
+                            System.out.print(TAB + TAB + "]");
+                            System.out.print(TAB + "}");
+                            System.out.print(ENTER);
 
                         } else {
                             String fatherName = fatherAndSonArray[0];
                             //This will create the Father
-                            yamlStringBuilder.append(TAB).append(fatherName).append(": {");
+                            yamlStringBuilder.append(TAB + fatherName + ": {");
+                            System.out.print(TAB + fatherName + ": {");
 
                         }
 
@@ -99,14 +125,18 @@ public class YamlController {
                         /*Checks for closing bracket } with a comma , then replaces it with empty string*/
                         if (fatherName.contains("}") && fatherName.contains(",")) {
                             String emptyString = "";
-                            yamlStringBuilder.append(TAB).append(TAB).append(emptyString);
+                            yamlStringBuilder.append(TAB + TAB + emptyString);
+                            System.out.print(TAB + TAB + emptyString);
 
                         } else if (fatherName.contains("}")) {//checks if there is a closing bracket then removes it.
                             String removeFatherNameClosingBracket = fatherName.replace("}", "");
-                            yamlStringBuilder.append(TAB).append(TAB).append(removeFatherNameClosingBracket);
+                            yamlStringBuilder.append(TAB + TAB + removeFatherNameClosingBracket);
+                            System.out.print(TAB + TAB + removeFatherNameClosingBracket);
 
                         } else { //prints last option
-                            yamlStringBuilder.append(TAB).append(TAB).append(fatherName);
+                            //Remove Commas
+                            yamlStringBuilder.append(TAB + fatherName + ENTER);
+                            System.out.print(TAB + fatherName + ENTER);
                         }
                     }
                 }
