@@ -12,13 +12,14 @@ public class MainApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
 
+        //scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("css/tailwind.css")).toExternalForm());
+
         stage.setTitle("Splyt!");
         stage.setScene(scene);
         stage.show();
     }
 
     public static void main(String[] args) {
-
         launch();
     }
 }

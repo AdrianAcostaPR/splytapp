@@ -1,0 +1,7 @@
+.button {
+    -fx-background-color: #4caf50; /* Apply Tailwind-like color */
+    -fx-text-fill: #ffffff; /* Apply Tailwind-like text color */
+    -fx-padding: 8px 16px; /* Apply Tailwind-like padding */
+    -fx-font-size: 14px; /* Apply Tailwind-like font size */
+    /* Add more styles as needed */
+}
