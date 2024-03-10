@@ -11,7 +11,7 @@ public class MainController {
     Stage stage = new Stage();
 
     @FXML
-    private Label chooseFileText; //To resolve alert on main-view.fxml.
+    private Label chooseFileText; //To resolve alert on
 
     @FXML
     private Label welcomeText;
