@@ -1,15 +1,8 @@
 package splytapp.splytapp;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.text.Text;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-
-import java.io.File;
-
 
 public class MainController {
     final String ENTER = "\n\r";
@@ -29,12 +22,16 @@ public class MainController {
     private RadioButton jsonRadioBtn;
     @FXML
     private TextArea outputText;
+    @FXML
+    private Button uploadButton;
+
 
     @FXML
     private void initialize() {
         ToggleGroup toggleGroup = new ToggleGroup();
         yamlRadioBtn.setToggleGroup(toggleGroup);
         jsonRadioBtn.setToggleGroup(toggleGroup);
+        applyButtonStyle(uploadButton);
     }
 
     @FXML
@@ -55,5 +52,10 @@ public class MainController {
             outputText.setText(yamlOutput);
             onClickText.setText("You chose JSON!");
         }
+    }
+
+    @FXML
+    private void applyButtonStyle(Button button) {
+        button.getStyleClass().add("button");
     }
 }
